@@ -1,0 +1,52 @@
+<meta charset="utf-8">
+<script src="http://m.bhzxdy.net/statics/plugin/jquery/jquery-1.9.1.min.js" language="javascript" type="text/javascript"></script>
+<script>
+    //字符串连接的性能
+
+  var arr = new Array();
+  arr[0] = "hello ";
+  arr[1] = "world";
+    arr[2] = "!";
+  var str = arr.join("");
+  console.log(str);
+    //创建存储结果的字符串
+    // 把每个字符串复制到结果中的合适位置
+    function StringBuffer () {
+      this._strings_ = new Array();
+    }
+
+    StringBuffer.prototype.append = function(str) {
+      this._strings_.push(str);
+    };
+
+    StringBuffer.prototype.toString = function() {
+      return this._strings_.join("");
+    };
+
+    var buffer = new StringBuffer();
+    buffer.append("hello ");
+    buffer.append("world");
+    var result = buffer.toString();
+    console.log(result);
+
+    var d1 = new Date();
+    var str = "";
+    for (var i=0; i < 20000000; i++) {
+      str += "text";
+    }
+    var d2 = new Date();
+
+    document.write("Concatenation with plus: "
+        + (d2.getTime() - d1.getTime()) + " 毫秒");
+
+    // var buffer = new StringBuffer();
+    // d1 = new Date();
+    // for (var i=0; i < 20000000; i++) {
+    //   buffer.append("text");
+    // }
+    // var result = buffer.toString();
+    // d2 = new Date();
+    //
+    // document.write("<br />Concatenation with StringBuffer: "
+    //     + (d2.getTime() - d1.getTime()) + " 毫秒");
+</script>
