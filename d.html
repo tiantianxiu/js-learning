@@ -1,0 +1,19 @@
+<script>
+  function CreatePerson(name){
+
+    this.name = name;
+    this.showName = function(){
+      alert( this.name );
+    };
+
+  }
+
+  var p1 = new CreatePerson('小明');
+  //p1.showName();
+  var p2 = new CreatePerson('小强');
+  //p2.showName();
+
+  console.log(p1.showName);
+  console.log(p2.showName);
+  alert( p1.showName == p2.showName );  //false  它们的值相同，地址不同
+</script>

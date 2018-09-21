@@ -1,0 +1,19 @@
+<script>
+  function Box(name, age) {
+    Box.prototype.name = name;
+    Box.prototype.age = age;
+  } //声明一个构造函数
+
+  Box.prototype = {
+    run: function () { //在原型里添加方法
+      return this.name + this.age + '运行中...'
+    }
+  }
+  var box1 = new Box('Lee',100); //new Box()即可
+  console.log(box1.run());
+  var box2 = new Box('Jack',200);
+
+  console.log(Box.prototype);
+  console.log(box2.__proto__.constructor );
+  console.log(box2 instanceof Box); //很清晰的识别他从属于Box
+</script>

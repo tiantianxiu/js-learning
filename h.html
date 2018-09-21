@@ -1,0 +1,27 @@
+<script>
+  var fullname = 'John Doe';
+  var obj = {
+    fullname: 'Colin Ihrig',
+    prop: {
+      fullname: 'Aurelio De Rosa',
+      getFullname: function() {
+        return this.fullname;
+      }
+    }
+  };
+  console.log(obj.prop.getFullname());
+  // 函数的最终调用者 obj.prop
+
+  var test = obj.prop.getFullname;
+  console.log(test());
+  // 函数的最终调用者 test()  this-> window
+
+  obj.func = obj.prop.getFullname;
+  console.log(obj.func());
+  // 函数最终调用者是obj
+
+  var arr = [obj.prop.getFullname,1,2];
+  arr.fullname = "JiangHao";
+  console.log(arr[0]());
+  // 函数最终调用者数组
+</script>

@@ -1,0 +1,46 @@
+<!--怎样添加、移除、移动、复制、创建和查找节点？-->
+<script>
+
+  //创建
+  createDocumentFragment();//创建DOM片段
+  creatElement();//创建具体节点
+  createTextNode();//创建文本节点
+
+  //添加、移除、替换、复制、查找
+  appendChild()//添加
+  removeChild()//移除
+  insertBefore()//插入
+  insertAfter()//插入
+  replaceChild()//替换
+
+  //查找
+  getElementsByTagname()//查找标签名称
+  getElementById()//查找ID
+  getElementsByClassName()//查找class
+  getElementsByName()//查找元素name属性的值
+</script>
+
+
+<!--写出3个使用this的典型应用-->
+
+<script>
+  var ii = '<input type="button" onclick="a(this)">';
+
+  function a() {
+    this.name = 'name1';
+  }
+
+  setTimeout(function (a) {
+    this
+  }, 100)
+</script>
+
+<!--比较typeof与instanceof？-->
+<script>
+    // 相同点都是用来判断变量是否为空，或者是什么属性
+    var b = new Array();
+    var c = new b();
+    console.log(b.constructor);
+    // console.log(typeof c);
+    // console.log(c instanceof b)
+</script>
